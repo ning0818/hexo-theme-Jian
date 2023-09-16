@@ -1,0 +1,51 @@
+<title><%= page.title %> | <%= config.title %></title>
+<main class="App-content">
+    <div id="content">
+        <div class="IndexPage">
+            <div class="container">
+                <div class="sideNavContainer">
+                    <div class="IndexPage-results sideNavOffset">
+                        <div id="post">
+                        <div class="card" id="title">
+                        <h1><%= page.title %></h1>
+                        </div>
+                        <div class="card" id="post-body">
+                        <% if (theme.plugins.NingGPT.enable) { %>
+                        <%- partial('_plugin/ningGPT/script') %>
+                        <% } %>
+                        <p><%- page.content %></p>
+                        </div>
+                        <div class="share card" id="sharecard">
+                            <link rel="stylesheet" class="nightmode" href="/css/copyright.css">
+                            <div class="copyright">
+                                <i class="bi bi-c-circle icon"></i>
+                                <div class="text">
+                                    <br>
+                                    <p><%= __('main.copyright') %></p>
+                                    <p><%= __('main.abbrlink') %><a href="<%= page.permalink %>"><%= page.permalink %></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="card">
+                            <h2><i class="bi bi-chat-fill"></i> <%= __('main.comments') %></h2>
+                            <%- partial('_partial/comment') %>
+                        </div>
+                    </div>
+                    <%- partial('_partial/sidenav') %>
+                </div>
+            </div>
+        </div>
+        <%- partial('_plugin/plugin') %>
+        
+    <noscript>
+        <div class="Alert">
+            <div class="container">
+                <%= __('main.nojs') %>
+            </div>
+        </div>
+    </noscript>
+</main>
+</div>
+</body>
